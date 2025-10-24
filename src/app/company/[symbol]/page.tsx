@@ -37,7 +37,7 @@ export default function CompanyDetailPage() {
   const logoUrl = getLogoFromStockData($stockData.data)
 
   return (
-    <Box maxWidth="1280px" width="100%" margin="auto" minHeight="100vh">
+    <Box maxWidth="1280px" width="100%" style={{ margin: "auto" }} minHeight="100vh">
       <Stack direction="column" gap={4}>
         <Stack direction="row" gap={3} alignItems="center">
           {logoUrl && (
