@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Technical decisions/FYI
+- Created backend endpoints for bulk fetching of data (ideally calls to third-party APIs would be cached)
+- Used Grafana UI which caused issues with SSR, so components are client side (SWR adds a bonus refresh) 
+- Couldn't find reliable Grafana UI docs on how to pull cell values for use with link generation (e.g. __value.raw), so use Grid view to access company detail pages
+- Couldn't find clear examples on responsive Grafana charts so used magic numbers here and there (also made responsive UI difficult implement)
+
 ## Getting Started
 
 First, run the development server:
@@ -35,9 +41,4 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-## TODO
-- [X] Install Grafana
-- [ ] Create Table component
-- [ ] Create Tile component
-- [ ] Create Card component
 
