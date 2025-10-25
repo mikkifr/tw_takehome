@@ -7,8 +7,9 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 - Couldn't find clear examples on responsive Grafana charts so used magic numbers here and there (also made responsive UI difficult implement)
 
 ## Getting Started
+First ensure a premium Alpha Vantage API key is in your local .env file (provided in project submission), e.g. `ALPHA_API_KEY=XXXXXXX` 
 
-First, run the development server:
+Then, run the development server:
 
 ```bash
 npm run dev

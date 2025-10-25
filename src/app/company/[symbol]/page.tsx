@@ -5,18 +5,9 @@ import { Stack, Text, Field, Box } from '@grafana/ui'
 import { useParams } from 'next/navigation'
 import { formatMarketCap, getLogoFromStockData } from '@/utils'
 import { StockChart } from '@/components/StockChart'
+import { HistoricalPrices } from '@/components/HistoricalPrices'
 import { Loader } from '@/components/Loader'
-
-interface CompanyOverview {
-  Symbol: string
-  AssetType: string
-  Name: string
-  Description: string
-  Exchange: string
-  Sector: string
-  Industry: string
-  MarketCapitalization: string
-}
+import { CompanyOverview } from '@/types/api'
 
 export default function CompanyDetailPage() {
   const params = useParams()
@@ -89,14 +80,17 @@ export default function CompanyDetailPage() {
         </Stack>
 
         {!$stockData.isLoading && !$stockData.error && $stockData.data && (
-          <Stack direction="column" gap={2}>
-            <Text element="h3" variant="h3">Stock Price History</Text>
-            <StockChart
-              stockData={$stockData.data}
-              symbol={symbol}
-              width={1216}
-              height={400}
-            />
+          <Stack direction="column" gap={4}>
+            <Stack direction="column" gap={2}>
+              <Text element="h3" variant="h3">Stock Price History</Text>
+              <StockChart
+                stockData={$stockData.data}
+                symbol={symbol}
+                width={1216}
+                height={400}
+              />
+            </Stack>
+            <HistoricalPrices symbol={symbol} />
           </Stack>
         )}
       </Stack>

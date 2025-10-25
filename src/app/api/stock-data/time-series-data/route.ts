@@ -6,7 +6,12 @@ import { fetchBulkStockData } from './utils'
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
   const symbolsString = searchParams.get('symbols')
-  const symbolsArray = symbolsString?.split(',') || []
+
+  if (!symbolsString) {
+    return NextResponse.json({ error: 'Symbols parameter is required' }, { status: 400 })
+  }
+
+  const symbolsArray = symbolsString.split(',')
 
   const bulkStockResponse = await fetchBulkStockData(symbolsArray)
 
