@@ -1,4 +1,4 @@
-import { Box, LoadingPlaceholder, useTheme2 } from '@grafana/ui'
+import { Box, LoadingPlaceholder } from '@grafana/ui'
 
 interface LoaderProps {
   width?: number | string
@@ -7,25 +7,21 @@ interface LoaderProps {
 }
 
 export const Loader: React.FC<LoaderProps> = ({
-  width = 400,
-  height = 400,
+  width = '400px',
+  height = '400px',
   marginTop = 16,
 }) => {
-  const theme = useTheme2()
-
   return (
     <Box
       width={width}
       height={height}
-      style={{ margin: marginTop + ' auto' }}
+      padding={4}
       display="flex"
       alignItems="center"
       justifyContent="center"
+      margin={'auto'}
     >
-      <LoadingPlaceholder
-        text="Loading..."
-        style={{ color: 'white' }}
-      />
+      <LoadingPlaceholder text="Loading..." />
     </Box>
   )
 }
