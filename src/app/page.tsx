@@ -13,6 +13,9 @@ function Home() {
 
   return (
     <Box paddingTop={8} style={{ margin: 'auto' }} width={'1280px'}>
+      <div style={{ padding: 10, margin: 10, position: 'absolute', top: 0, right: 0, background: '#c00', color: 'white', borderRadius: 4 }}>
+      Premium account closed on 11/21/2025. Add your own premium key one if you have it, or contact me and I'll purchase another.
+      </div>
       <Stack direction="column" gap={4} grow={1}>
         <StockViewToggle
           viewMode={viewMode}
